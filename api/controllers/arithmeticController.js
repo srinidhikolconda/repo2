@@ -1,3 +1,4 @@
+
 'use strict';
 
 exports.calculate = function(req, res) {
@@ -48,3 +49,4 @@ exports.calculate = function(req, res) {
 
   res.json({ result: operation(req.query.operand1, req.query.operand2) });
 };
+//with Modifying the add function

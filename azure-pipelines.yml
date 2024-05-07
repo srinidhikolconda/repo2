@@ -10,15 +10,23 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- checkout: self
+  fetchDepth: 0
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'SonarCloud connection'
     organization: 'sonarcloud444'
     scannerMode: 'CLI'
-    configMode: 'file'
-- task: SonarQubeAnalyze@5
+    configMode: 'manual'
+    cliProjectKey: 'gamedevntip_Caculator'
+    cliProjectName: 'Caculator'
+    cliSources: '.'
+- task: SonarCloudAnalyze@1
   inputs:
-    jdkversion: 'JAVA_HOME'
+    jdkversion: 'JAVA_HOME_17_X64'
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'

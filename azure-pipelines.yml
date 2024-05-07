@@ -16,6 +16,9 @@ steps:
     organization: 'sonarcloud444'
     scannerMode: 'CLI'
     configMode: 'file'
+- task: SonarQubeAnalyze@5
+  inputs:
+    jdkversion: 'JAVA_HOME'
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
